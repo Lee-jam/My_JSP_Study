@@ -1,5 +1,7 @@
 package common;
 
+import java.util.ArrayList;
+
 public class Person {
 	/* 자바빈즈 Java beans - 자바로 작성한 소프트웨어 컴포넌트
 	 * 1. 기본 패키지 이외에 패키지에 위치
@@ -12,6 +14,7 @@ public class Person {
 	 * DTO(Data Transfer Object) : 데이터 전송 객체
 	 * 
 	 * */
+	ArrayList<String> a = new ArrayList<>();
 	//멤버변수
 	private String name;
 	private int age;

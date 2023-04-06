@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="common.JDBConnect"%>
+<%@ page import="common.JDBConnPool"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,7 @@
 	jdbc1.close();
 	
 %>
+	<h2>TDBC connect test2</h2>
 <%
 	String driver ="oracle.jdbc.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -23,10 +26,15 @@
 	jdbc2.close();
 	
 %>
+	<h2>TDBC connect test3</h2>
 <%
 	JDBConnect jdbc3 = new JDBConnect(application);
 	jdbc3.close();
 %>
-
+	<h2>TDBC connect test4</h2>
+<%
+	JDBConnPool pool = new JDBConnPool();
+	pool.close();
+%>
 </body>
 </html>

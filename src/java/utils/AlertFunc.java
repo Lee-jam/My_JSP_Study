@@ -29,7 +29,7 @@ public class AlertFunc {
 			resp.setContentType("text/html;charset=UTF-8");
 			PrintWriter writer=resp.getWriter();
 			writer = resp.getWriter();
-		String script = "<script>"+"alert('"+msg+"');"+"location.href='"+url+"';"+"</script>";
+			String script = "<script>"+"alert('"+msg+"');"+"location.href='"+url+"';"+"</script>";
 			writer.println(script);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

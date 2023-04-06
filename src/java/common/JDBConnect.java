@@ -1,6 +1,6 @@
 package common;
 
-import java.beans.Statement;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,6 +62,9 @@ public class JDBConnect {
 	
 	public void close() {
 			try {
+				if(rs!=null)rs.close();
+				if(stmt!=null)stmt.close();
+				if(psmt!=null)psmt.close();
 				if(con!=null)con.close();
 				System.out.println("DB 연결 해제");
 			} catch (SQLException e) {
