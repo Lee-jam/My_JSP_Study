@@ -5,21 +5,22 @@
 <%@ page import="board.BoardDTO" %>
 
 <%
+	String num = request.getParameter("num");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	
 	BoardDTO dto = new BoardDTO();
+	dto.setNum(num);
 	dto.setTitle(title);
 	dto.setContent(content);
-	dto.setId(session.getAttribute("UserId").toString());
 	
 	BoardDAO dao = new BoardDAO();
-	int res = dao.insertWrite(dto);
+	int res = dao.updateEdit(dto);
 	dao.close();
-
+	
 	if(res==1){
-		response.sendRedirect("List.jsp");
+		response.sendRedirect("View.jsp?num="+dto.getNum());
 	}else{
-		AlertFunc.alertBack("글쓰기가 입력되지않았습니다.", out);
+		AlertFunc.alertBack("수정하지 못했습니다.", out);
 	}
 %>

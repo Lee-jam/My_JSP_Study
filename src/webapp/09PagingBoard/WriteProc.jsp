@@ -15,6 +15,12 @@
 	
 	BoardDAO dao = new BoardDAO();
 	int res = dao.insertWrite(dto);
+	//int res=0;
+	//for(int i=1;i<132;i++){
+	//	dto.setTitle(title+i);
+	//	dto.setContent(content+i);
+	//	res=dao.insertWrite(dto);
+	//}
 	dao.close();
 
 	if(res==1){
