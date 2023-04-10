@@ -41,7 +41,7 @@
 	num4 != num3 ${num4 ne num3}<br>
 	
 	<h3>논리 연산자</h3>
-	num3<=num4 && num3 == num4 ${num3 le num4 and num3 eq num4}<br>
+	num3 <= num4 && num3 == num4 ${num3 le num4 and num3 eq num4}<br>
 	num3>num4 || num3 != num4 ${num3 ge num4 or num3 ne num4}<br>
 	
 	
