@@ -67,7 +67,38 @@
   	<filter-name>SetCharEncoding</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  <servlet>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<servlet-class>servlet.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<url-pattern>/13Servlet/FirstServlet.do</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>SecondServlet</servlet-name>
+  	<servlet-class>servlet.ServletView</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+  	<servlet-name>SecondServlet</servlet-name>
+  	<url-pattern>/ServletView.do</url-pattern>
+  </servlet-mapping>
+<!--   
+  <servlet>
+  	<servlet-name>MemberAuth</servlet-name>
+  	<servlet-class>servlet.MemberAuth</servlet-class>
+  	<init-param>
+  		<param-name>manager</param-name>
+  		<param-value>admin</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>MemberAuth</servlet-name>
+  	<url-pattern>/13Servlet/MemberAuth.mvc</url-pattern>
+  </servlet-mapping>
+   -->
   
 </web-app>

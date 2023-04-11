@@ -9,7 +9,7 @@
 <body>
 	<h4>파일 업로드</h4>
 	<span style="color:red;">${errMsg}</span>
-	<form name="fileForm" method="post" enctype="multipart/form-data" action="UploadPrc.jsp" onsubmit="return validationForm(this);">
+	<form name="fileForm" method="post" enctype="multipart/form-data" action="UploadProc.jsp" onsubmit="return validationForm(this);">
 		작성자 : <input type="text" name="name" value="관리자"/><br>
 		제목 : <input type="text" name="title"/><br>
 		카테고리 :
