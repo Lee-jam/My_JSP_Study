@@ -41,6 +41,12 @@
   	<param-value>5</param-value>
   </context-param>
   
+  <context-param>
+  	<param-name>maxPostSize</param-name>
+  	<param-value>1024000</param-value>
+  </context-param>
+  
+  
   
   <error-page>
   	<error-code>404</error-code>
@@ -100,5 +106,24 @@
   	<url-pattern>/13Servlet/MemberAuth.mvc</url-pattern>
   </servlet-mapping>
    -->
+  <servlet>
+  <servlet-name>M2BoardList</servlet-name>
+  <servlet-class>m2board.ListController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>M2BoardList</servlet-name>
+  <url-pattern>/m2board/list.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>M2BoardWrite</servlet-name>
+  <servlet-class>m2board.WriteController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>M2BoardWrite</servlet-name>
+  <url-pattern>/m2board/Write.do</url-pattern>
+  </servlet-mapping>
   
 </web-app>
