@@ -65,5 +65,14 @@ public class FileUtil {
 	}
 	//파일 삭제
 
+	public static void deleteFile(HttpServletRequest req, String directory, String saveFileName) {
+		String saveDirectory=req.getServletContext().getRealPath(directory);
+		File file = new File(saveDirectory+File.separator+saveFileName);
+		if(file.exists()) {
+			file.delete();
+		}
+		
+	}
+
 
 }

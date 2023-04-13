@@ -50,18 +50,39 @@
 		</tr>
 		 <tr>
       		<td colspan="4" align="center">
-         <button type="button" onclick="location.href='../m2board/pass.do?mode=edit&idx=${param.idx};'">
+         <button type="button" onclick="location.href='../m2board/pass.do?mode=edit&idx=${param.idx}'">
             수정하기
-         </button><button type="button" onclick="location.href='../m2board/delete.do?mode=edit&idx=${param.idx};'">
+         </button><button type="button" onclick="location.href='../m2board/pass.do?mode=delete&idx=${param.idx}'">
             삭제하기
          </button><button type="button" onclick="location.href='../m2board/list.do;'">
             목록 바로가기
          </button>
          </td>
          </tr>
-
-		
-		
 	</table>
+<script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
+<script>
+ $('#downbtn').on("click",(e)=>{
+	e.preventDefault();
+	console.log('btn click');
+	$.ajax({
+		type:'post',
+		async:false, //아작스에 의해 동작해야 하는 상황에서 아작스보다 먼저 실행이 되면 오류이기 때문에 그것을 방지하고 있는 옵션(비동기식/동기식 선택 옵션)
+		url : '/jspstudy/m2board/download.do',
+		dataType:'text',
+		data:{idx:'${dto.idx}'},
+		success:function(data,textStatus){
+			console.log(data);
+			$('#dcount').text(data);
+		},
+		error:function(data,textStatus){
+			console.log('error',data,texStatus)
+		}
+	})
+ })
+</script>
 </body>
 </html>

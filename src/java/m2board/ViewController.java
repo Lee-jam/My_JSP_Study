@@ -18,6 +18,7 @@ public class ViewController extends HttpServlet{
 		MBoardDTO dto=dao.getView(idx); //내용 읽어오기
 		dao.close();
 		
+		dto.setContent(dto.getContent().replaceAll("\r\n", "<br>"));
 		//게시물 뷰로 전달
 		req.setAttribute("dto", dto);
 		req.getRequestDispatcher("/14M2Board/View.jsp").forward(req, resp);

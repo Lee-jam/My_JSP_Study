@@ -139,4 +139,75 @@ public class MBoardDAO extends JDBConnPool {
 		}
 		
 	}
+	public int getDowncount(String idx) {
+		int dcount=0;
+		String query ="select downcount from fileboard where idx=?";
+		try {
+		psmt = con.prepareStatement(query);
+		psmt.setString(1, idx);
+		rs = psmt.executeQuery();
+		rs.next();
+		dcount = rs.getInt(1);
+		}catch(Exception e) {
+			System.out.println("다운로드 수 읽기 중 에러");
+			e.printStackTrace();
+		}
+		return dcount;
+	}
+	
+	public boolean confirmPassword(String pass, String idx) {
+		boolean isRight = false;
+		try {
+//			String query = "select count(*) from fileboard where pass=? and idx=?";
+			String query = "SELECT COUNT(*) FROM FILEBOARD WHERE PASS=? AND IDX=?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, pass);
+			psmt.setString(2, idx);
+			rs = psmt.executeQuery();
+			rs.next();
+			if(rs.getInt(1)==1) {
+				isRight=true;
+			}
+		}catch(Exception e){
+			isRight=false;
+			System.out.println("암호검증 중 에러");
+			e.printStackTrace();
+		}
+		return isRight;
+	}
+	
+	public int deletePost(String idx) {
+		int result = 0;
+		try {
+		String query = "delete from fileboard where idx=?";
+		psmt= con.prepareStatement(query);
+		psmt.setString(1, idx);
+		result = psmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("게시물 삭제 중 에러");
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	 public int updatePost(MBoardDTO dto) {
+	      int result = 0;
+	      try {
+	         String sql = "update fileboard set title=?, name=?, content=?, ofile=?, nfile=? where idx=? and pass=?";
+	         psmt = con.prepareStatement(sql);
+	         psmt.setString(1, dto.getTitle());
+	         psmt.setString(2, dto.getName());
+	         psmt.setString(3, dto.getContent());
+	         psmt.setString(4, dto.getOfile());         
+	         psmt.setString(5, dto.getNfile());         
+	         psmt.setString(6, dto.getIdx());         
+	         psmt.setString(7, dto.getPass());         
+	         result = psmt.executeUpdate();
+	      } catch (Exception e) {
+	         System.out.println("게시물 수정 중 에러");
+	         e.printStackTrace();
+	      }
+	      return result;
+	   }
+	
 }

@@ -1,6 +1,7 @@
 package m2board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,5 +27,15 @@ public class DownloadController extends HttpServlet{
 		dao.close();
 		
 	}
-
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String idx = req.getParameter("idx");
+		MBoardDAO dao = new MBoardDAO();
+		int downcount=dao.getDowncount(idx);
+		dao.close();
+		
+		PrintWriter out=resp.getWriter();
+		out.print(downcount);
+		
+	}
 }
