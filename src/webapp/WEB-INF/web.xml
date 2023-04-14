@@ -126,4 +126,9 @@
   <url-pattern>/m2board/Write.do</url-pattern>
   </servlet-mapping>
   
+  <context-param>
+  	<param-name>CHAT_ADDR</param-name>
+  	<param-value>ws://localhost:8081/jspstudy</param-value>
+  </context-param>
+  
 </web-app>
